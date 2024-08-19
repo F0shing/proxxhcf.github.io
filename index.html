@@ -228,9 +228,15 @@
                   });
                 });
 
-                // Utiliser le jour acctuel comme base
+                // Ajouter la classe active au bouton du jour actuel
                 const today = getTodayDay();
-                displayAnimesByDay(today);
+                const buttons = document.querySelectorAll('.day-button');
+                buttons.forEach(button => {
+                  if (button.textContent.toLowerCase() === today) {
+                    button.classList.add('active');
+                    displayAnimesByDay(today); // Appeler la fonction pour afficher les cartes
+                  }
+                });
 
               } else {
                 console.error('Structure inattendue des données de l\'API');
